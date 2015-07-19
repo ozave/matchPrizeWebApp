@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MatchPrize Fantasy Football</title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
+    <script src="/javascripts/matchPrizeWebApp.js"></script>
+    <style> .glyphicon-thumbs-up {
+        cursor: pointer
+      } </style>
+    <base href="/">
+  </head>
+  <body ng-app="matchPrize">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ui-view></ui-view>
+      </div>
+    </div>
+    <script type="text/ng-template" id="/home.html">
+      <h1>MatchPrize Fantasy Football</h1>
+      <p>Welcome to MatchPrize Fantasy Football</p>
+    </script>
+  </body>
+</html>
