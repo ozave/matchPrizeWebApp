@@ -8,33 +8,34 @@
         function($scope){
             $scope.homepage = "MatchPrize HomePage"
     }])
-     .controller('FixturesCtrl', ['$scope','fixtures',
-         function($scope, fixtures){
-             $scope.fixtures = fixtures.fixtures;
-    }]);
+    // .controller('FixturesCtrl', ['$scope','fixtures',
+    //     function($scope, fixtures){
+    //         $scope.fixtures = fixtures.fixtures;
+    //}])
+;
 
 /** Factories Module */
- angular.module('matchPrize.factories', [])
-    .factory('fixtures', ['$http', function($http){
-        var o = {
-            fixtures: []
-        };
-
-        o.getAll = function() {
-            return $http.get('/fixtures').success(function(data){
-                angular.copy(data, o.fixtures);
-            });
-        };
-
-        o.get = function(id) {
-            return $http.get('/fixtures/' + id).then(function(res){
-                return res.data;
-            });
-        };
-
-        return o;
-    }]
- );
+ //angular.module('matchPrize.factories', [])
+ //   .factory('fixtures', ['$http', function($http){
+ //       var o = {
+ //           fixtures: []
+ //       };
+ //
+ //       o.getAll = function() {
+ //           return $http.get('/fixtures').success(function(data){
+ //               angular.copy(data, o.fixtures);
+ //           });
+ //       };
+ //
+ //       o.get = function(id) {
+ //           return $http.get('/fixtures/' + id).then(function(res){
+ //               return res.data;
+ //           });
+ //       };
+ //
+ //       return o;
+ //   }]
+ //);
 
  /** Filters Module */
  angular.module('matchPrize.filters', [])
@@ -46,7 +47,7 @@
  );
 
 
-var matchPrizeApp = angular.module('matchPrize', ['ui.router','matchPrize.controllers','matchPrize.factories','matchPrize.filters'])
+var matchPrizeApp = angular.module('matchPrize', ['ui.router','matchPrize.controllers','matchPrize.filters'])
     .config(['$stateProvider','$urlRouterProvider','$locationProvider',
         function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -56,16 +57,17 @@ var matchPrizeApp = angular.module('matchPrize', ['ui.router','matchPrize.contro
                     templateUrl: '/home.html',
                     controller: 'MainCtrl'
                 })
-                .state('fixtures', {
-                    url: '/fixtures',
-                    templateUrl: '/fixtures.html',
-                    controller: 'FixturesCtrl',
-                    resolve: {
-                        postPromise: ['fixtures', function(fixtures){
-                            return fixtures.getAll();
-                        }]
-                    }
-                });
+                //.state('fixtures', {
+                //    url: '/fixtures',
+                //    templateUrl: '/fixtures.html',
+                //    controller: 'FixturesCtrl',
+                //    resolve: {
+                //        postPromise: ['fixtures', function(fixtures){
+                //            return fixtures.getAll();
+                //        }]
+                //    }
+                //})
+            ;
 
             $urlRouterProvider.otherwise('home');
 

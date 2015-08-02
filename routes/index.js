@@ -15,19 +15,19 @@ router.get('/', function(req, res, next) {
   }
 });
 
-//Returns fixtures from database
-router.get('/fixtures', function(req, res, next){
-
-  Fixture.aggregate({
-        $group:
-        { _id: "$gameWeek",
-          fixtureDetails: { $push:  { matchDate: "$matchDate" ,matchTime: "$matchTime" } }
-        }},
-
-      function(err, fixtures) {
-        if(err){ return next(err); }
-        res.json(fixtures);
-      });
-});
+////Returns fixtures from database
+//router.get('/fixtures', function(req, res, next){
+//
+//  Fixture.aggregate({
+//        $group:
+//        { _id: "$gameWeek",
+//          fixtureDetails: { $push:  { matchDate: "$matchDate" ,matchTime: "$matchTime" } }
+//        }},
+//
+//      function(err, fixtures) {
+//        if(err){ return next(err); }
+//        res.json(fixtures);
+//      });
+//});
 
 module.exports = router;
