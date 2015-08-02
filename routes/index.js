@@ -7,7 +7,7 @@ var Fixture = mongoose.model('Fixture');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (app.get('env') === 'production') {
-    res.render('index', {environment: '-PROD'});
+    res.render('index', {environment: '- PROD'});
   }else if (app.get('env') === 'staging') {
     res.render('index', {environment: ' - STAGING'});
   }  else if (app.get('env') === 'development') {
