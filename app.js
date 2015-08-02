@@ -14,7 +14,7 @@ var app = express();
 var mongoose = require('mongoose');
 //var passport = require('passport');
 
-//mongoose.connect('mongodb://localhost/flap_db');
+mongoose.connect('mongodb://matchPrizeWeApp:webappdbpass@ds043971.mongolab.com:43971/matchprize-prod');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
