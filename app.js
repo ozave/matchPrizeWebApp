@@ -12,9 +12,25 @@ var users = require('./routes/users');
 
 var app = express();
 var mongoose = require('mongoose');
+var mongodbUri = require('mongodb-uri');
+
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
+
 //var passport = require('passport');
 
-mongoose.connect('mongodb://matchPrizeWeApp:webappdbpass@ds043971.mongolab.com:43971/matchprize-prod');
+//Database configurations
+  if (app.get('env') === 'production') {
+    var mongooseUri = mongodbUri.formatMongoose(process.env.PROD_MONGOD);
+    mongoose.connect(mongooseUri, options);
+  }else if (app.get('env') === 'staging') {
+    var mongooseUri = mongodbUri.formatMongoose(process.env.STAGING_MONGOD);
+    mongoose.connect(mongooseUri, options);
+  }  else if (app.get('env') === 'development') {
+    var mongooseUri = mongodbUri.formatMongoose(process.env.DEV_MONGODB);
+    mongoose.connect(mongooseUri, options);
+  }
+//mongoose.connect('mongodb://matchPrizeWeApp:webappdbpass@ds043971.mongolab.com:43971/matchprize-prod');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
