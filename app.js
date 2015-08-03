@@ -21,10 +21,10 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 //Database configurations
   if (app.get('env') === 'production') {
-    var mongooseUri = mongodbUri.formatMongoose(process.env.PROD_MONGOD);
+    var mongooseUri = mongodbUri.formatMongoose(process.env.PROD_MONGODB);
     mongoose.connect(mongooseUri, options);
   }else if (app.get('env') === 'staging') {
-    var mongooseUri = mongodbUri.formatMongoose(process.env.STAGING_MONGOD);
+    var mongooseUri = mongodbUri.formatMongoose(process.env.STAGING_MONGODB);
     mongoose.connect(mongooseUri, options);
   }  else if (app.get('env') === 'development') {
     var mongooseUri = mongodbUri.formatMongoose(process.env.DEV_MONGODB);
